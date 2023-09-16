@@ -7,6 +7,7 @@ import { createResource } from "solid-js";
 import { Component } from "solid-js";
 import createTimeoutLoop from "@solid-primitives/timer"
 import {lodash} from "lodash/seq.js";
+import {sortBy} from "lodash/collection.js";
 
 const fetchUser = async () =>
   (await fetch(`http://127.0.0.1:8000/api/user`)).json();
@@ -23,7 +24,9 @@ function TableUserComponent() {
 
 
 
-    let userList
+    let userList = sortBy( user(), ["username", "punkte"]);
+
+
 return (
         <>
             <For each={user()}>{(user, i) =>
