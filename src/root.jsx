@@ -26,9 +26,7 @@ export default function Root() {
       </Head>
       <Body>
         <ErrorBoundary>
-          <A href="/">Index</A>
-          <A href="/about">About</A>
-                <A href="/table">table</A>
+
           <Suspense>
             <main>
               <Routes>
