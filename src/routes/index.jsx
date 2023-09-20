@@ -1,33 +1,37 @@
-import Counter from "~/components/Counter";
+import Counter from "~/components/Parkplatz";
 import {A} from "solid-start";
 import {For, render} from "solid-js/web";
 import {createSignal} from "solid-js";
 import 'flowbite';
-import { createResource } from "solid-js";
-import { Component } from "solid-js";
+import {createResource} from "solid-js";
+import {Component} from "solid-js";
 import createTimeoutLoop from "@solid-primitives/timer"
 import {lodash} from "lodash/seq.js";
 import {sortBy} from "lodash/collection.js";
+import "./style.css"
+import {ParkplatzBox} from "~/components/Parkplatz.jsx"
+
 
 const fetchUser = async () =>
-  (await fetch(`http://127.0.0.1:8000/api/user`)).json();
+    (await fetch(`http://127.0.0.1:8000/api/user`)).json();
+
+
 
 
 function TableUserComponent() {
     //const [user] = createResource(userId, fetchUser);
-   // const [user, setUser] = createSignal(fetchUser());
+    // const [user, setUser] = createSignal(fetchUser());
     //const [user] = createResource(userId, fetchUser);
-      const [userId, setUserId] = createSignal();
+    const [userId, setUserId] = createSignal();
 
-      const [user,  { mutate, refetch }] = createResource( fetchUser);
-      const [delay, setDelay] = createSignal(1000);
-
-
-
-    let userList = sortBy( user(), ["username", "punkte"]);
+    const [user, {mutate, refetch}] = createResource(fetchUser);
+    const [delay, setDelay] = createSignal(1000);
 
 
-return (
+  //  let userList = sortBy(user(), ["username", "punkte"]);
+
+
+    return (
         <>
             <For each={user()}>{(user, i) =>
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -64,7 +68,7 @@ function TableUser() {
                     <th scope="col" class="px-6 py-3">
                         Name
                     </th>
- <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3">
                         Score
                     </th>
                 </tr>
@@ -77,9 +81,6 @@ function TableUser() {
     );
 
 }
-
-
-
 
 
 function ListUser() {
@@ -113,7 +114,10 @@ export default function App() {
 
 
             <TableUser></TableUser>
+            <ParkplatzBox></ParkplatzBox>
 
         </main>
     );
 }
+
+

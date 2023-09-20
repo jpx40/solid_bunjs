@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+  grid-template-columns: 125px 100px 125px;
+  grid-auto-rows: 50px;
+}
+
+
+.container > .box {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(207, 232, 220);
+  border: 2px solid rgb(79, 185, 227);
+}
+.container > .street {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(128, 128, 128);
+  border: 2px solid rgb(79, 185, 227);
+}
+
+.container > .gras {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(246, 255, 242);
+  border: 2px solid rgb(79, 185, 227);
+}
+
+
+
