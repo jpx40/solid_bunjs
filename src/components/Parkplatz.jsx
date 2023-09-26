@@ -47,18 +47,14 @@ export function ParkplatzBox() {
     const [Parkplatz, setParkplatz] = createSignal();
 
     const [park, {mutate, refetch}] = createResource(fetchParkplatz);
-function test(){
 
-
-    let testVar = park();
-    return testVar;
-}
-
+    const test = () => park();
 console.log(test());
     return (
         <>
             <div className="container">
-                <Parkbox nr="1"/>
+
+                <Parkbox nr="1" />
                 <Street/>
 
                 <Parkbox nr="2"/>
