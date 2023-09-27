@@ -6,7 +6,7 @@ import {ParkplatzBox} from "~/components/Parkplatz.jsx"
 
 
 const fetchUser = async () =>
-    (await fetch(`http://10.0.0.58:8000/api/user`, {headers: {"Cache-Control": "max-age=0"
+    (await fetch(`http://localhost:8000/api/user`, {headers: {"Cache-Control": "max-age=0"
 },
 })).json();
 

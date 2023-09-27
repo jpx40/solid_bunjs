@@ -2,7 +2,7 @@ import "./Parkplatz.css";
 import {createResource, createSignal} from "solid-js";
 
 const fetchParkplatz = async () =>
-    (await fetch(`http://10.0.0.58:8000/api/parkplatz`)).json();
+    (await fetch(`http://localhost:8000/api/parkplatz`)).json();
 
 
 function Parkbox(prob) {
